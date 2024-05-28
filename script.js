@@ -8,6 +8,12 @@ function confirmarAsistencia() {
     mensaje
   )}`;
   window.open(whatsappUrl, '_blank');
+
+  const confirmButton = document.getElementById('confirmar-btn');
+  confirmButton.textContent = 'Asistencia Confirmada';
+  confirmButton.classList.remove('btn-success');
+  confirmButton.classList.add('btn-confirmed');
+  confirmButton.disabled = true;
 }
 
 function downloadPDF() {
@@ -88,21 +94,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   }, 1000);
 
-  function createConfetti() {
-    confetti({
-      particleCount: 50,
-      startVelocity: 30,
-      spread: 360,
-      origin: {
-        x: Math.random(),
-        y: Math.random(),
-      },
-      colors: ['#ffffff', '#ffdd99'],
-      opacity: 0.6,
-    });
-  }
+  document.addEventListener('click', function (event) {
+    createConfetti(event.clientX, event.clientY);
+  });
 
-  setInterval(createConfetti, 4000);
+  // Automatic confetti trigger, 3 times
+  let confettiCount = 0;
+  const confettiInterval = setInterval(() => {
+    if (confettiCount < 3) {
+      createConfetti(
+        Math.random() * window.innerWidth,
+        Math.random() * window.innerHeight
+      );
+      confettiCount++;
+    } else {
+      clearInterval(confettiInterval);
+    }
+  }, 2000);
 
   const options = {
     strings: ['¡Te invito a celebrar mis 15 años!'],
@@ -118,3 +126,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   new Typed('#typed-text', options);
 });
+
+function createConfetti(x, y) {
+  confetti({
+    particleCount: 50,
+    startVelocity: 30,
+    spread: 360,
+    origin: {
+      x: x / window.innerWidth,
+      y: y / window.innerHeight,
+    },
+    colors: ['#ffffff', '#ffdd99'],
+    opacity: 0.6,
+  });
+}
