@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 body {
-    background: linear-gradient(to right, #6a0dad, #4b0082);
-    color: #d3d3d3;
+    margin: 0;
+    overflow: hidden;
     font-family: 'Arial', sans-serif;
+    background-color: black;
+    /* Fondo negro */
+    color: #d3d3d3;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    overflow: hidden;
 }
 
 .container {
@@ -17,7 +20,8 @@ body {
 }
 
 .invitation-card {
-    background: rgba(75, 0, 130, 0.9);
+    background: rgba(0, 0, 0, 0.8);
+    /* Transparencia con fondo negro */
     border-radius: 10px;
     padding: 20px;
     max-width: 500px;
@@ -104,11 +108,7 @@ p {
     cursor: pointer;
     margin-top: 20px;
     font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.05);
+    transition: background-color 0.3s;
 }
 
 .btn-primary {
@@ -142,53 +142,11 @@ p {
     margin-top: 20px;
     width: 150px;
     height: 150px;
-    transition: transform 0.3s;
 }
 
-.qr img:hover {
-    transform: rotate(360deg);
-}
-
-.confetti {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.confetti-piece {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #ff00ff;
-    opacity: 0.7;
-    animation: confetti-fall 5s linear infinite, confetti-drift 3s ease-in-out infinite;
-}
-
-@keyframes confetti-fall {
-    0% {
-        top: -10%;
-    }
-
-    100% {
-        top: 110%;
-    }
-}
-
-@keyframes confetti-drift {
-    0% {
-        transform: rotate(0deg) translateX(0);
-    }
-
-    50% {
-        transform: rotate(180deg) translateX(20px);
-    }
-
-    100% {
-        transform: rotate(360deg) translateX(0);
-    }
+.typed-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em;
+    color: #ffdd99;
+    margin-bottom: 20px;
 }
