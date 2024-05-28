@@ -15,52 +15,57 @@ function downloadPDF() {
   const countdown = document.getElementById('countdown');
   const buttons = element.querySelectorAll('button');
 
-  // Hide the countdown and buttons before generating the PDF
   countdown.style.display = 'none';
   buttons.forEach((button) => (button.style.display = 'none'));
 
   html2canvas(element, { scale: 2 }).then((canvas) => {
     const imgData = canvas.toDataURL('image/png');
     const pdf = new jsPDF('p', 'mm', 'a4');
-    const imgWidth = 210; // A4 width in mm
-    const pageHeight = 295; // A4 height in mm
+    const imgWidth = 210;
+    const pageHeight = 295;
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-    // Adjust the height and position to ensure it fits well on one page
     const heightLeft = imgHeight <= pageHeight ? imgHeight : pageHeight;
     const position = (pageHeight - heightLeft) / 2;
 
     pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
     pdf.save('invitation.pdf');
 
-    // Restore the countdown and buttons after generating the PDF
     countdown.style.display = 'block';
     buttons.forEach((button) => (button.style.display = 'inline-block'));
   });
 }
 
-function agendarFecha() {
-  const title = 'Cumpleaños de Valentina';
-  const location =
-    'Iglesia de San Francisco, Quito y Salón de Eventos La Mar, Quito';
-  const details = 'Celebración de los 15 años de Valentina';
-  const startDate = new Date('June 29, 2024 17:00:00');
-  const endDate = new Date('June 30, 2024 01:00:00');
+function guardarFecha() {
+  const event = {
+    summary: 'Celebración de Cumpleaños de Valentina',
+    location: 'Iglesia de San Francisco, Quito',
+    description: 'Fiesta de 15 años de Valentina.',
+    start: {
+      dateTime: '2024-06-29T17:00:00',
+      timeZone: 'America/Guayaquil',
+    },
+    end: {
+      dateTime: '2024-06-29T23:00:00',
+      timeZone: 'America/Guayaquil',
+    },
+  };
 
-  const start = startDate.toISOString().replace(/-|:|\.\d+/g, '');
-  const end = endDate.toISOString().replace(/-|:|\.\d+/g, '');
+  const baseUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
+  const params = new URLSearchParams({
+    text: event.summary,
+    location: event.location,
+    details: event.description,
+    dates: `${event.start.dateTime.replace(
+      /[-:]/g,
+      ''
+    )}/${event.end.dateTime.replace(/[-:]/g, '')}`,
+  });
 
-  const url = `https://calendar.google.com/calendar/r/eventedit?text=${encodeURIComponent(
-    title
-  )}&dates=${start}/${end}&details=${encodeURIComponent(
-    details
-  )}&location=${encodeURIComponent(location)}`;
-
-  window.open(url, '_blank');
+  const googleCalendarUrl = `${baseUrl}&${params.toString()}`;
+  window.open(googleCalendarUrl, '_blank');
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
-  // Countdown timer
   const countDownDate = new Date('Jun 29, 2024 19:00:00').getTime();
   const countdownElement = document.getElementById('countdown');
 
@@ -83,24 +88,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   }, 1000);
 
-  // Confetti effect
   function createConfetti() {
     confetti({
-      particleCount: 100,
+      particleCount: 50,
       startVelocity: 30,
       spread: 360,
       origin: {
         x: Math.random(),
         y: Math.random(),
       },
-      colors: ['#ff00ff', '#00ffff'], // Confetti colors
-      opacity: 0.5, // Increased transparency
+      colors: ['#ffffff', '#ffdd99'],
+      opacity: 0.6,
     });
   }
 
-  setInterval(createConfetti, 2000); // Crear confetis cada 2 segundos
+  setInterval(createConfetti, 4000);
 
-  // Typed.js effect
   const options = {
     strings: ['¡Te invito a celebrar mis 15 años!'],
     typeSpeed: 50,
@@ -113,5 +116,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
     },
   };
 
-  const typed = new Typed('#typed-text', options);
+  new Typed('#typed-text', options);
 });
