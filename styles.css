@@ -2,36 +2,49 @@
 
 body {
     margin: 0;
-    overflow: hidden;
     font-family: 'Arial', sans-serif;
     background-color: black;
     color: #d3d3d3;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    /* Ensure the body takes at least 100% of the viewport height */
+    box-sizing: border-box;
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    /* Ensure the container takes at least 100% of the viewport height */
     box-sizing: border-box;
+    padding: 20px;
+    /* Added padding for better spacing */
 }
 
 .invitation-card {
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    padding: 20px;
-    max-width: 500px;
+    padding: 60px 30px;
+    /* Adjust padding as needed */
     width: 100%;
+    /* Use full width of the container */
+    max-width: 800px;
+    /* Set a max width for larger screens */
     text-align: center;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center content vertically */
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
+    margin: 20px;
+    /* Added margin for spacing */
 }
 
 .invitation-card::before {
@@ -70,7 +83,6 @@ body {
 
 .cake-icon i {
     font-size: 40px;
-    /* Adjusted font size */
     color: gold;
     animation: pulse 2s infinite;
 }
@@ -121,9 +133,16 @@ p {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
     font-size: 16px;
     transition: background-color 0.3s;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .btn-primary {
@@ -144,13 +163,9 @@ p {
     background-color: #218838;
 }
 
-.btn-info {
-    background-color: #17a2b8;
-    color: #fff;
-}
-
-.btn-info:hover {
-    background-color: #138496;
+.btn-confirmed {
+    background-color: #ffcc00;
+    color: #000;
 }
 
 .qr {
@@ -170,11 +185,20 @@ p {
     margin-bottom: 20px;
 }
 
+.confirmation-message {
+    margin-top: 20px;
+    font-size: 1em;
+    color: #28a745;
+    display: none;
+    /* Hidden by default */
+}
+
 @media screen and (max-width: 600px) {
     .invitation-card {
-        padding: 20px 10px;
-        /* Increased top and bottom padding */
+        padding: 40px 10px;
+        /* Adjusted top and bottom padding */
         width: 90%;
+        /* Ensure it takes 90% of the viewport width */
     }
 
     .btn {
