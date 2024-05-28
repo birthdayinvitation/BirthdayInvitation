@@ -10,7 +10,6 @@ body {
     overflow: hidden;
     padding: 20px;
     box-sizing: border-box;
-    /* Add this to include padding in the height calculation */
 }
 
 .container {
@@ -19,13 +18,12 @@ body {
     align-items: center;
     flex-direction: column;
     margin-bottom: 20px;
-    /* Add margin-bottom to create space below the container */
 }
 
 .invitation-card {
     background: #4b0082;
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px;
     max-width: 500px;
     width: 100%;
     text-align: center;
@@ -34,7 +32,6 @@ body {
     overflow: hidden;
     margin-top: 20px;
     margin-bottom: 20px;
-    /* Ensure there's space below the card */
 }
 
 .invitation-card::before {
@@ -107,7 +104,7 @@ p {
 }
 
 .btn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -149,27 +146,24 @@ p {
     height: 150px;
 }
 
-/* New styles for links */
 a {
     color: #ffffff;
-    /* White color for the links */
     text-decoration: none;
 }
 
 a:hover {
     color: #ffff00;
-    /* Yellow color on hover */
     text-decoration: underline;
 }
 
 @media screen and (max-width: 768px) {
     .invitation-card {
-        padding: 15px;
+        padding: 20px;
     }
 
     .btn {
         font-size: 14px;
-        padding: 8px 15px;
+        padding: 10px 20px;
     }
 
     .cake-icon i {
@@ -183,12 +177,12 @@ a:hover {
 
 @media screen and (max-width: 480px) {
     .invitation-card {
-        padding: 10px;
+        padding: 15px;
     }
 
     .btn {
         font-size: 12px;
-        padding: 6px 10px;
+        padding: 8px 16px;
     }
 
     .cake-icon i {
