@@ -9,6 +9,8 @@ body {
     margin: 0;
     overflow: hidden;
     padding: 20px;
+    box-sizing: border-box;
+    /* Add this to include padding in the height calculation */
 }
 
 .container {
@@ -16,6 +18,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 20px;
+    /* Add margin-bottom to create space below the container */
 }
 
 .invitation-card {
@@ -25,12 +29,12 @@ body {
     max-width: 500px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 0 15px rgba(196, 169, 169, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     position: relative;
     overflow: hidden;
     margin-top: 20px;
-    margin-bottom: 60px;
-    /* Increased margin-bottom to create more space */
+    margin-bottom: 20px;
+    /* Ensure there's space below the card */
 }
 
 .invitation-card::before {
@@ -157,7 +161,6 @@ a:hover {
     /* Yellow color on hover */
     text-decoration: underline;
 }
-
 
 @media screen and (max-width: 768px) {
     .invitation-card {
