@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitación de Cumpleaños</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="invitation-card" id="invitation-card">
+        <div class="content">
+          <h1>¡Ven a festejar mis 15 años!</h1>
+          <div class="cake-icon">
+            <i class="fas fa-birthday-cake"></i>
+          </div>
+          <h2>Valentina</h2>
+          <h4>Invitación Digital</h4>
+          <p class="date"><i class="fas fa-calendar-alt"></i> 29 / 06 / 2024</p>
+          <p class="time"><i class="fas fa-clock"></i> Misa: 05:00 PM</p>
+          <p class="time"><i class="fas fa-clock"></i> Fiesta: 07:00 PM</p>
+          <p class="address">
+            <i class="fas fa-map-marker-alt"></i>
+            <a
+              href="#"
+              onclick="openGoogleMaps('Iglesia de San Francisco, Quito')"
+              >Iglesia de San Francisco, Quito</a
+            >
+          </p>
+          <p class="address">
+            <i class="fas fa-map-marker-alt"></i>
+            <a
+              href="#"
+              onclick="openGoogleMaps('Salón de Eventos La Mar, Quito')"
+              >Fiesta en Salón de Eventos La Mar, Quito</a
+            >
+          </p>
+          <div id="countdown" class="countdown"></div>
+          <div id="qr">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.link/tu_enlace_personalizado"
+              alt="QR para confirmar asistencia"
+            />
+          </div>
+          <button
+            id="confirmButton"
+            class="btn btn-success"
+            onclick="confirmarAsistencia()"
+          >
+            <i class="fas fa-check"></i> Confirmar Asistencia
+          </button>
+          <p id="confirmationMessage" style="display: none">
+            Tu asistencia ya fue confirmada.
+          </p>
+          <button class="btn btn-info" onclick="downloadPDF()">
+            <i class="fas fa-file-pdf"></i> Descargar en PDF
+          </button>
+          <button class="btn btn-primary" onclick="guardarEnCalendario()">
+            <i class="fas fa-calendar-plus"></i> Guardar en Calendario
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
