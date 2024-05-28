@@ -39,6 +39,26 @@ function downloadPDF() {
   });
 }
 
+function agendarFecha() {
+  const title = 'Cumpleaños de Valentina';
+  const location =
+    'Iglesia de San Francisco, Quito y Salón de Eventos La Mar, Quito';
+  const details = 'Celebración de los 15 años de Valentina';
+  const startDate = new Date('June 29, 2024 17:00:00');
+  const endDate = new Date('June 30, 2024 01:00:00');
+
+  const start = startDate.toISOString().replace(/-|:|\.\d+/g, '');
+  const end = endDate.toISOString().replace(/-|:|\.\d+/g, '');
+
+  const url = `https://calendar.google.com/calendar/r/eventedit?text=${encodeURIComponent(
+    title
+  )}&dates=${start}/${end}&details=${encodeURIComponent(
+    details
+  )}&location=${encodeURIComponent(location)}`;
+
+  window.open(url, '_blank');
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
   // Countdown timer
   const countDownDate = new Date('Jun 29, 2024 19:00:00').getTime();
@@ -73,6 +93,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         x: Math.random(),
         y: Math.random(),
       },
+      colors: ['#ff00ff', '#00ffff'], // Confetti colors
+      opacity: 0.5, // Increased transparency
     });
   }
 
