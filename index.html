@@ -25,6 +25,10 @@
           <p class="date">
             <i class="fas fa-calendar-alt"></i> 29 de Junio, 2024
           </p>
+          <div id="countdown" class="countdown"></div>
+          <button class="btn btn-primary" onclick="guardarFecha()">
+            <i class="fas fa-calendar-plus"></i> Guardar en Google Calendar
+          </button>
           <p class="time"><i class="fas fa-clock"></i> Misa: 05:00 PM</p>
           <p class="time"><i class="fas fa-clock"></i> Fiesta: 07:00 PM</p>
           <p class="address">
@@ -35,22 +39,18 @@
             <i class="fas fa-map-marker-alt"></i> Fiesta en Salón de Eventos La
             Mar, Quito
           </p>
-          <div id="countdown" class="countdown"></div>
-          <div class="qr">
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/?text=Confirmo%20mi%20asistencia%20a%20la%20celebración%20de%20cumpleaños"
-              alt="QR para confirmar asistencia"
-            />
-          </div>
           <button class="btn btn-success" onclick="confirmarAsistencia()">
             <i class="fas fa-check"></i> Confirmar Asistencia
           </button>
           <button class="btn btn-info" onclick="downloadPDF()">
             <i class="fas fa-file-pdf"></i> Descargar en PDF
           </button>
-          <button class="btn btn-primary" onclick="guardarFecha()">
-            <i class="fas fa-calendar-plus"></i> Guardar Fecha
-          </button>
+          <div class="qr">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/?text=Confirmo%20mi%20asistencia%20a%20la%20celebración%20de%20cumpleaños"
+              alt="QR para confirmar asistencia"
+            />
+          </div>
         </div>
       </div>
     </div>
