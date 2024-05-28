@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    countdownElement.innerHTML = `Faltan ${days}d ${hours}h ${minutes}m ${seconds}s`;
 
     if (distance < 0) {
       clearInterval(updateCountdown);
