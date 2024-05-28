@@ -5,7 +5,6 @@ body {
     overflow: hidden;
     font-family: 'Arial', sans-serif;
     background-color: black;
-    /* Fondo negro */
     color: #d3d3d3;
     display: flex;
     justify-content: center;
@@ -17,11 +16,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
+    /* Added padding for responsiveness */
 }
 
 .invitation-card {
     background: rgba(0, 0, 0, 0.8);
-    /* Transparencia con fondo negro */
     border-radius: 10px;
     padding: 20px;
     max-width: 500px;
