@@ -8,12 +8,14 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
+    padding: 20px;
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .invitation-card {
@@ -23,9 +25,12 @@ body {
     max-width: 500px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(196, 169, 169, 0.2);
     position: relative;
     overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    /* Increased margin-bottom to create more space */
 }
 
 .invitation-card::before {
@@ -151,4 +156,43 @@ a:hover {
     color: #ffff00;
     /* Yellow color on hover */
     text-decoration: underline;
+}
+
+
+@media screen and (max-width: 768px) {
+    .invitation-card {
+        padding: 15px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .cake-icon i {
+        font-size: 40px;
+    }
+
+    .countdown {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .invitation-card {
+        padding: 10px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .cake-icon i {
+        font-size: 30px;
+    }
+
+    .countdown {
+        font-size: 16px;
+    }
 }
