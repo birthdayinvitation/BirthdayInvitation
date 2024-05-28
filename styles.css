@@ -1,0 +1,154 @@
+body {
+    background: linear-gradient(to right, #6a0dad, #4b0082);
+    color: #d3d3d3;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.invitation-card {
+    background: #4b0082;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.invitation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0.7;
+    animation: neonBorder 5s linear infinite;
+}
+
+@keyframes neonBorder {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.cake-icon i {
+    font-size: 50px;
+    color: gold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 10px 0;
+}
+
+.countdown {
+    font-size: 20px;
+    margin-top: 10px;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
+    }
+
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff, 0 0 60px #00ffff, 0 0 70px #00ffff;
+    }
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #6a0dad;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #4b0082;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}
+
+.qr img {
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+/* New styles for links */
+a {
+    color: #ffffff;
+    /* White color for the links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffff00;
+    /* Yellow color on hover */
+    text-decoration: underline;
+}
