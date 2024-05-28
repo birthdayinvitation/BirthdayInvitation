@@ -64,18 +64,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }, 1000);
 
   // Confetti effect
-  const confettiContainer = document.createElement('div');
-  confettiContainer.classList.add('confetti');
-  document.body.appendChild(confettiContainer);
-
-  for (let i = 0; i < 100; i++) {
-    const confettiPiece = document.createElement('div');
-    confettiPiece.classList.add('confetti-piece');
-    confettiPiece.style.left = Math.random() * 100 + 'vw';
-    confettiPiece.style.backgroundColor = `hsl(${
-      Math.random() * 360
-    }, 100%, 50%)`;
-    confettiPiece.style.animationDelay = Math.random() * 5 + 's';
-    confettiContainer.appendChild(confettiPiece);
+  function createConfetti() {
+    confetti({
+      particleCount: 100,
+      startVelocity: 30,
+      spread: 360,
+      origin: {
+        x: Math.random(),
+        y: Math.random(),
+      },
+    });
   }
+
+  setInterval(createConfetti, 2000); // Crear confetis cada 2 segundos
+
+  // Typed.js effect
+  const options = {
+    strings: ['¡Te invito a celebrar mis 15 años!'],
+    typeSpeed: 50,
+    showCursor: false,
+    onComplete: (self) => {
+      const cursor = document.querySelector('.typed-cursor');
+      if (cursor) {
+        cursor.style.display = 'none';
+      }
+    },
+  };
+
+  const typed = new Typed('#typed-text', options);
 });
