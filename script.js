@@ -2,15 +2,12 @@ window.jsPDF = window.jspdf.jsPDF;
 
 function confirmarAsistencia() {
   const mensaje =
-    '¡Hola! Confirmo mi asistencia a la celebración del 15º cumpleaños de Valentina el 29 de junio de 2024. ¡Nos vemos ahí! Mi nombre es:';
-  const numeroTelefono = '+593958809186'; // Reemplaza con el número de teléfono real
+    'Confirmo mi asistencia a la celebración de cumpleaños de Valentina';
+  const numeroTelefono = '1234567890'; // Replace with actual phone number
   const whatsappUrl = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(
     mensaje
   )}`;
   window.open(whatsappUrl, '_blank');
-  localStorage.setItem('asistenciaConfirmada', 'true');
-  document.getElementById('confirmButton').style.display = 'none';
-  document.getElementById('confirmationMessage').style.display = 'block';
 }
 
 function downloadPDF() {
@@ -43,7 +40,6 @@ function downloadPDF() {
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
-  // Placeholder for any DOMContentLoaded related tasks if needed in the future.
   // Countdown timer
   const countDownDate = new Date('Jun 29, 2024 19:00:00').getTime();
   const countdownElement = document.getElementById('countdown');
@@ -67,22 +63,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   }, 1000);
 
-  // Check if assistance is already confirmed
-  if (localStorage.getItem('asistenciaConfirmada') === 'true') {
-    document.getElementById('confirmButton').style.display = 'none';
-    document.getElementById('confirmationMessage').style.display = 'block';
+  // Confetti effect
+  const confettiContainer = document.createElement('div');
+  confettiContainer.classList.add('confetti');
+  document.body.appendChild(confettiContainer);
+
+  for (let i = 0; i < 100; i++) {
+    const confettiPiece = document.createElement('div');
+    confettiPiece.classList.add('confetti-piece');
+    confettiPiece.style.left = Math.random() * 100 + 'vw';
+    confettiPiece.style.backgroundColor = `hsl(${
+      Math.random() * 360
+    }, 100%, 50%)`;
+    confettiPiece.style.animationDelay = Math.random() * 5 + 's';
+    confettiContainer.appendChild(confettiPiece);
   }
 });
-
-function openGoogleMaps(location) {
-  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    location
-  )}`;
-  window.open(mapsUrl, '_blank');
-}
-
-function guardarEnCalendario() {
-  const calUrl =
-    'https://www.google.com/calendar/render?action=TEMPLATE&text=15%C2%BA%20Cumplea%C3%B1os%20de%20Valentina&dates=20240629T170000Z/20240629T230000Z&details=Celebraci%C3%B3n%20de%20misa%20y%20fiesta&location=Iglesia%20de%20San%20Francisco%2C%20Quito';
-  window.open(calUrl, '_blank');
-}
