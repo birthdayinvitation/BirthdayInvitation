@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Invitación de Cumpleaños</title>
+    <title>Invitación de 15 Años</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -14,53 +14,37 @@
     <div class="container">
       <div class="invitation-card" id="invitation-card">
         <div class="content">
-          <h1>¡Ven a festejar mis 15 años!</h1>
+          <p>¡Te invito a celebrar mis 15 años!</p>
           <div class="cake-icon">
             <i class="fas fa-birthday-cake"></i>
           </div>
           <h2>Valentina</h2>
-          <h4>Invitación Digital</h4>
-          <p class="date"><i class="fas fa-calendar-alt"></i> 29 / 06 / 2024</p>
+          <h3>Una noche especial llena de magia y diversión</h3>
+          <p class="date">
+            <i class="fas fa-calendar-alt"></i> 29 de Junio, 2024
+          </p>
           <p class="time"><i class="fas fa-clock"></i> Misa: 05:00 PM</p>
           <p class="time"><i class="fas fa-clock"></i> Fiesta: 07:00 PM</p>
           <p class="address">
-            <i class="fas fa-map-marker-alt"></i>
-            <a
-              href="#"
-              onclick="openGoogleMaps('Iglesia de San Francisco, Quito')"
-              >Iglesia de San Francisco, Quito</a
-            >
+            <i class="fas fa-map-marker-alt"></i> Iglesia de San Francisco,
+            Quito
           </p>
           <p class="address">
-            <i class="fas fa-map-marker-alt"></i>
-            <a
-              href="#"
-              onclick="openGoogleMaps('Salón de Eventos La Mar, Quito')"
-              >Fiesta en Salón de Eventos La Mar, Quito</a
-            >
+            <i class="fas fa-map-marker-alt"></i> Fiesta en Salón de Eventos La
+            Mar, Quito
           </p>
           <div id="countdown" class="countdown"></div>
-          <div id="qr">
+          <div class="qr">
             <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.link/tu_enlace_personalizado"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/?text=Confirmo%20mi%20asistencia%20a%20la%20celebración%20de%20cumpleaños"
               alt="QR para confirmar asistencia"
             />
           </div>
-          <button
-            id="confirmButton"
-            class="btn btn-success"
-            onclick="confirmarAsistencia()"
-          >
+          <button class="btn btn-success" onclick="confirmarAsistencia()">
             <i class="fas fa-check"></i> Confirmar Asistencia
           </button>
-          <p id="confirmationMessage" style="display: none">
-            Tu asistencia ya fue confirmada.
-          </p>
           <button class="btn btn-info" onclick="downloadPDF()">
             <i class="fas fa-file-pdf"></i> Descargar en PDF
-          </button>
-          <button class="btn btn-primary" onclick="guardarEnCalendario()">
-            <i class="fas fa-calendar-plus"></i> Guardar en Calendario
           </button>
         </div>
       </div>
