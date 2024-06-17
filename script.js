@@ -20,8 +20,8 @@ function confirmarAsistencia() {
 function guardarFecha() {
   const event = {
     summary: 'Celebración de Cumpleaños de Valentina',
-    location: 'Iglesia de San Francisco, Quito',
-    description: 'Fiesta de 15 años de Valentina.',
+    location: 'Evento',
+    description: 'Recepciones Vista al Valle, Quito Collasuyo y Av. Simón Bolívar, Barrio Miravalle #1 / Sector Argelia Alta',
     start: {
       dateTime: '2024-06-29T17:00:00',
       timeZone: 'America/Guayaquil',
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }, 2000);
 
   const options = {
-    strings: ['¡Te invito a celebrar mis 15 años!'],
+    strings: ['¡Mis 15 años!'],
     typeSpeed: 50,
     showCursor: false,
     onComplete: (self) => {
