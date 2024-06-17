@@ -3,7 +3,7 @@ window.jsPDF = window.jspdf.jsPDF;
 function confirmarAsistencia() {
   const mensaje =
     'Confirmo mi asistencia a la celebración de cumpleaños de Valentina';
-  const numeroTelefono = '1234567890'; // Replace with actual phone number
+  const numeroTelefono = '958687531'; // Updated phone number
   const whatsappUrl = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(
     mensaje
   )}`;
@@ -15,6 +15,7 @@ function confirmarAsistencia() {
   confirmButton.classList.add('btn-confirmed');
   confirmButton.disabled = true;
 }
+
 
 function guardarFecha() {
   const event = {
