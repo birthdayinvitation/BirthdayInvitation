@@ -16,31 +16,6 @@ function confirmarAsistencia() {
   confirmButton.disabled = true;
 }
 
-function downloadPDF() {
-  const element = document.getElementById('invitation-card');
-  const countdown = document.getElementById('countdown');
-  const buttons = element.querySelectorAll('button');
-
-  countdown.style.display = 'none';
-  buttons.forEach((button) => (button.style.display = 'none'));
-
-  html2canvas(element, { scale: 2 }).then((canvas) => {
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const imgWidth = 210;
-    const pageHeight = 295;
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-    const heightLeft = imgHeight <= pageHeight ? imgHeight : pageHeight;
-    const position = (pageHeight - heightLeft) / 2;
-
-    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-    pdf.save('invitation.pdf');
-
-    countdown.style.display = 'block';
-    buttons.forEach((button) => (button.style.display = 'inline-block'));
-  });
-}
-
 function guardarFecha() {
   const event = {
     summary: 'Celebración de Cumpleaños de Valentina',
